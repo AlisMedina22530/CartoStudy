@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="api_estilo.css">
+    <title>API</title> 
+</head>
+<body>
+<h1 style="color: red;">API utilizando la librería axios y VUE</h1>
+<h2 style="background-color: rgba(0,0,0,0.5);">La API desarrollada nos devuelve los datos contenidos en un archivo propio de extensión .json alojado en nuestra terminal; y refieren a asentamientos humanos relevados de cartas topográficas, propiedad del IGN, en la zona de las Misiones Jesuíticas. Los datos nos devuelven el id, el nombre y el tipo de asentamiento.</h2>
+
+<div id="app">
+    <ul>
+        <li v-for="asentamiento in asentamientos">
+            {{asentamiento.id}}
+            {{asentamiento.FNA}}
+            {{asentamiento.MAM}}
+            {{asentamiento.TYP}}
+        </li>
+    </ul>
+
+</div>
+    <script src="https://unpkg.com/vue@2.5.9/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                asentamientos: []
+            },
+            methods:{
+                getAsentamientos: function(){
+                    axios.get('data_api.json').then(response => {
+                        this.asentamientos = response.data
+                    })
+                }
+            },
+            mounted:function(){
+                this.getAsentamientos();
+            }
+        });
+    </script>
+    
+</body>
+</html>

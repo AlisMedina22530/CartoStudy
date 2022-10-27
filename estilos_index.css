@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ .grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr 8fr;
+    height: 100vh;
+    grid-template-areas: "header header header"
+                         "button contenido fixed";
+ }
+ .grid-container .header{
+    color: rgb(255, 0, 0);
+    background-color: rgba(102, 102, 102, 0.6);
+    background-size:contain;
+    /*grid-column-start: 1;
+    grid-column-end: 3;*/
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: header;   
+ }
+
+ .grid-container .header  h1 {
+    color: rgb(255, 0, 0);
+    background-color: rgba(10, 247, 247, 0.3);
+    border-radius: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-size: 30px;
+    font-size: 300%;
+    padding: 5px 20px;
+}
+.grid-container .header>img{
+    float: left;
+    width:100px;
+    height:90px;
+  }
+.grid-container .header .fixed2{
+  color: rgba(255, 255, 255, 0.5);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 14px;
+  justify-content: center;
+  align-self: center;
+}
+  .grid-container .navegador .button {
+   background-color: Blue; 
+   border-radius: 8px;
+   border: 1px solid red;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 16px;
+   cursor: pointer;
+   width: 200px;
+   display: block;
+   position: relative;
+   top: 25%;
+   grid-area: button;
+ }
+ .grid-container .navegador .button:not(:last-child) {
+   border-bottom: none; /* Previene bordes dobles */
+ }
+ .grid-container .navegador .button:hover {
+   background-color: #06c7be;
+ }
+
+.grid-container .contenido{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: 200px;
+      font-size: 18px;
+      text-shadow: 0 -1px 0 rgb(23 22 20 / 78%);
+      padding: 60px;
+      min-height: 380px;
+      max-width:580px;
+      margin-top: auto;
+      background-color: rgba(102, 102, 102, 0.6);
+      border-radius: 8px;
+      grid-area: contenido;
+      justify-self: center;
+      align-self: center;
+    }
+.grid-container .contenido h1 {
+      color: rgb(255, 0, 0);
+      background-color: rgba(10, 247, 247, 0.3);
+      border-radius: 50px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-style: normal;
+      font-size: 30px;
+      text-align:center;
+      font-size: 300%;     
+  }
+  
+.grid-container .contenido h2 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-style: normal;
+      font-size: 20px;    
+  }
+
+
+  .grid-container .fixed{
+    justify-self: center;
+    align-self: center;
+ } 
+
+ .grid-container.fixed img{
+  width: 100px;
+  height: auto;
+  align-self: center;
+ }
+
+.grid-container .fixed a{
+   position: fixed;
+   bottom: 0;
+   right: 0;
+   width: auto;
+   grid-area: fixed;
+}
+
+a:link {
+   color: rgb(0, 0, 225);
+   background-color: transparent;
+   text-decoration: underline;
+}
+a:visited {
+   color: blue;
+   background-color: transparent;
+   text-decoration: none;
+}
+a:hover {
+   color: red;
+   background-color: transparent;
+   text-decoration: underline;
+}
+a:active {
+   color: yellow;
+   background-color: transparent;
+   text-decoration: underline;
+}
+a.button {
+   background-color: #06c7be;
+   border-radius: 8px;
+   color: white;
+   padding: 10px 15px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 1px 1px;
+   transition-duration: 0.4s;
+   cursor: pointer;    
+} 
+a.button:hover {
+   background-color: #0421fd;
+   color: white;
+}
+  
+/*estilo responsivo*/
+@media only screen and (max-width: 499px) {
+  .grid-container{
+    grid-template-areas: "header header header"
+                         "contenido contenido contenido"
+                         "navegador navegador fixed";
+    font-size: 70%;
+  }
+  .grid-container .fixed{
+    width: auto;
+    grid-area: fixed;
+ }
+ } 
+
+@media only screen and (min-width:500px) and (max-width: 767px) {
+ .grid-container{
+   grid-template-areas: "header header header"
+                        "contenido contenido contenido"
+                        "navegador navegador fixed";
+   font-size: 70%;
+ }
+
+.grid-container .header{
+  width: 100%;
+}
+.grid-container .contenido{
+  min-height: 80%;
+  max-width: 100%;
+  font-size: 200%;
+  margin:0;
+}
+ }
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+   .grid-container{ 
+     grid-template-areas: "header header header"
+                          "contenido contenido contenido"
+                          "navegador navegador fixed";
+     font-size: 70%;
+   }
+  
+  .grid-container .header{
+    width: 100%;
+  }
+  .grid-container .header>img{
+    width:90px; 
+    height:80px;
+  }
+  .grid-container .contenido{
+    max-width: 100%;
+    font-size: 200%;
+    margin:0;
+  }
+
+ }
+  

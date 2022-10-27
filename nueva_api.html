@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async + Await con Axios</title>
+
+    <!-- Mi hoja de estilos externa -->
+    <link rel="stylesheet" href="api_estilo.css">
+
+    <!--CDN de Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+
+<body>
+    <h1 style="color:red ;">API utilizando la librería axios</h>
+
+        <p style="background-color:rgba(0,0,0,0.5); color: black;">Ver en consola: Si bien muestra el listado de datos del archivo .json, no muestra el pedido por id.</p>
+    <script>
+        
+        const getAsent = async (id) => {
+            try {
+                const resPost = await axios('data_api.json') 
+                console.log(resPost);
+                console.log(resPost.data.id)
+                console.log(resPost.data.FNA)
+               
+            } catch (error) {
+                console.log('Ocurrió un error grave', error)
+            }
+        }       
+        getAsent(8);
+        
+
+    </script>
+</body>
+
+</html>
